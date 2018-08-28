@@ -9,12 +9,12 @@ class WordCount
 {
 	public:
 		std::ifstream file;
-		string s;
+		string sw;
 		string word;
 		int count;
 
 		void wc() {
-			file.open(s);
+			file.open(sw);
 		
 			std::istream_iterator<std::string> in{ file }, end;
 

@@ -7,12 +7,12 @@ class LineCount
 {
 	public:
 		std::ifstream file;
-		string s;
+		string sl;
 		int lc = 0;
 		string line;
 
 	void linecount() {
-		file.open(s);
+		file.open(sl);
 
 		while (getline(file, line)) {
 			lc++;

@@ -8,12 +8,12 @@ class CharCount
 {
 	public:
 		std::ifstream file;
-		string s;
+		string sc;
 		string ln;
 		int ch = 0;
 
 		void countch() {
-			file.open(s);
+			file.open(sc);
 			while (getline(file, ln)) {;
 				ch += ln.length();
 			}
