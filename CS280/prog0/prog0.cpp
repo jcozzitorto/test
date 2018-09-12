@@ -10,11 +10,11 @@ int main (int argc, char *argv[]) {
 		char ch;
 
 		if (s.at(0) == 'S') {
-			cout << s;
+			cout << endl;
 		}
 
 		else if (s.at(0) == 'L') {
-			for (int j = 0; j < s.length(); j++) {
+			for (int j = 1; j < s.length(); j++) {
 				if (isupper(s.at(j))) {	
 					ch = tolower(s.at(j));
 					cout << ch;
@@ -26,7 +26,7 @@ int main (int argc, char *argv[]) {
 		}
 
 		else if (s.at(0) == 'U') {
-			for (int k = 0; k < s.length(); k++) {
+			for (int k = 1; k < s.length(); k++) {
 				if(islower(s.at(k))) {
 					ch = toupper(s.at(k));
 					cout << ch;
@@ -57,7 +57,10 @@ int main (int argc, char *argv[]) {
 		}
 
 
-		else cout << "FAIL" << endl;
+		else if ((s.at(0) != 'S') && (s.at(0) != 'L') && (s.at(0) != 'U') && (s.at(0) != 'r') && (s.at(0) != 'R')) {
+			cout << "FAIL" << endl;
 
 	}
+}
+
 }
