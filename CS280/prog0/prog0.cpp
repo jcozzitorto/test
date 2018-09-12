@@ -10,9 +10,9 @@ int main (int argc, char *argv[]) {
 		char ch;
 
 		if (s.at(0) == 'S') {
-			cout << endl;
+			;
 		}
-
+		
 		else if (s.at(0) == 'L') {
 			for (int j = 1; j < s.length(); j++) {
 				if (isupper(s.at(j))) {	
