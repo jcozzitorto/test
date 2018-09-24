@@ -9,17 +9,19 @@ int main (int argc, char *argv[]) {
 	
 	ifstream infile;
 
-	if (argc < 1) {
-		cerr << "NO VALID ARGUMENTS" << endl;
+	if (argc == 1) {
+		cerr << "NO PHRASE LENGTH" << endl;
 		return -1;
 	}
 	
 	if (string(argv[1]) == "0") {
-	        cout << "0 " ;
+            cout << "INVALID PHRASE LENGTH";
+            cout << endl;
 	}
 
 	else if (string(argv[1]) == "1") {
-		cout << "1 " ;
+		    cout << "1";
+            cout << endl;
 	} 
 
 	else if (string(argv[2]) == "all") {
@@ -43,4 +45,4 @@ int main (int argc, char *argv[]) {
 			cout << "nonexistantfile " ;
 		}
 	}
-}	
+} 
