@@ -20,8 +20,7 @@ int main (int argc, char *argv[]) {
 	}
 
 	else if (string(argv[1]) == "1") {
-		    cout << "1";
-            cout << endl;
+		    ;
 	} 
 
 	else if (string(argv[2]) == "all") {
@@ -31,8 +30,12 @@ int main (int argc, char *argv[]) {
 	else if (string(argv[2]) == "top") {
 		cout << "top " ;
 	}
+	
+	if (argc < 4) {
+		cout << "NO FILES GIVEN" << endl;
+	}
 
-	for (int i = 3; i < argc; i++) {
+	for (int i = 4; i < argc; i++) {
 		string s = argv[i];
 		infile.open(s);
 
@@ -42,7 +45,7 @@ int main (int argc, char *argv[]) {
 		}
 
 		else if (!infile.is_open()) {
-			cout << "nonexistantfile " ;
+			cout << "BAD FILE " << s << endl;
 		}
 	}
 } 
