@@ -8,19 +8,30 @@ using namespace std;
 int main (int argc, char *argv[]) {
 	
 	ifstream infile;
-
-	if (argv[1] == NULL) {
+    
+	if (argc < 2) {
 		cout << "NO PHRASE LENGTH" << endl;
-		return -1;
+		return 0;
 	}
+	      
 	
-	if (stoi(argv[1]) <= 0) {
-		cout << "INVALID PHRASE LENGTH" << endl;
-	}
-
-	else if (!isdigit(stoi(argv[1]))) {
-		cout << "INVALID PHRASE LENGTH" << endl;
-	}
+    if (atoi(argv[1]) > 0) {
+        ;
+    }
+    
+    else if (atoi(argv[1]) <= 0) {
+        cout << "INVALID PHRASE LENGTH" << endl;
+        return 0;
+    }
+    
+    string str = argv[1];
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (!isdigit(str.at(i))) {
+           cout << "INVALID PHRASE LENGTH" << endl;
+           return 0;
+        }
+    }
 
 	if (argv[2] == NULL) {
 		cout << "NO MODE" << endl;
@@ -28,29 +39,31 @@ int main (int argc, char *argv[]) {
 	}
 
 	if (string(argv[2]) == "all") {
-		cout << "all " ;
+		;
 	}
 
 	else if (string(argv[2]) == "top") {
-		cout << "top " ;
+		;
 	}
+    
+    else { cout << "INVALID MODE" << endl;
+          return 0;
+         }
 
 	if (argv[3] == NULL)  {
 		cout << "NO FILES GIVEN" << endl;
 	}
 
-	for (int i = 4; i < argc; i++) {
+	for (int i = 3; i < argc; i++) {
 		string s = argv[i];
 		infile.open(s);
 
-		if (infile.is_open()) {
-			 ;
-			infile.close();
-		}
-
-		else if (!infile.is_open()) {
-			cout << "BAD FILE " << s << endl;
-		}
+		if (!infile.is_open()) {
+            cout << "BAD FILE " << s << endl;
+        }
+            
+         else infile.close();
 	}
 }
+
 
