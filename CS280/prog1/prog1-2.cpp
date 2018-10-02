@@ -2,12 +2,18 @@
 #include <fstream>
 #include <string>
 #include <cctype>
+#include <sstream>
+#include <map>
 
 using namespace std;
 
 int main (int argc, char *argv[]) {
 	
 	ifstream infile;
+	ostringstream ss;
+	string oneline;
+	map<string, int> wordList;
+	string st = ss.str();
     
 	if (argc < 2) {
 		cout << "NO PHRASE LENGTH" << endl;
@@ -64,6 +70,15 @@ int main (int argc, char *argv[]) {
             
          else infile.close();
 	}
+
+	while (getline(infile, oneline)) {
+		ss << oneline ;
+	}
+
+	while (cin >> st) {
+		wordList[st]++;
+	}
+
 }
 
 
