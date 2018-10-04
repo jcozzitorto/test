@@ -12,7 +12,7 @@ int main (int argc, char *argv[]) {
 	
 	ifstream infile;
 	ostringstream ss;
-	string oneline;
+	string st;
 	map<string, int> wordList;
     
 	if (argc < 2) {
@@ -60,10 +60,8 @@ int main (int argc, char *argv[]) {
 		string s = argv[i];
 		infile.open(s);
 		
-		while (getword(infile, oneline)) {
-			ss << oneline;
-			string st = ss.str();
-
+		while (infile >> st) {
+			
 			wordList[st]++;
 		}
 	
