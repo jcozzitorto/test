@@ -79,10 +79,4 @@ int main (int argc, char *argv[]) {
          	else infile.close();
 	}
 
-	/*while (cin >> st) {
-		wordList[st]++;
-	}*/
-
 }
-
-
