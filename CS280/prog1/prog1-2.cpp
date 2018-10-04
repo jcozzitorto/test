@@ -4,6 +4,7 @@
 #include <cctype>
 #include <sstream>
 #include <map>
+#include <iterator>
 
 using namespace std;
 
@@ -13,17 +14,12 @@ int main (int argc, char *argv[]) {
 	ostringstream ss;
 	string oneline;
 	map<string, int> wordList;
-	string st = ss.str();
     
 	if (argc < 2) {
 		cout << "NO PHRASE LENGTH" << endl;
 		return 0;
 	}
 	      
-	
-    if (atoi(argv[1]) > 0) {
-        ;
-    }
     
     else if (atoi(argv[1]) <= 0) {
         cout << "INVALID PHRASE LENGTH" << endl;
@@ -38,8 +34,8 @@ int main (int argc, char *argv[]) {
            return 0;
         }
     }
-
-	if (argv[2] == NULL) {
+    	
+    	if (argv[2] == NULL) {
 		cout << "NO MODE" << endl;
 		return 0;
 	}
@@ -63,21 +59,31 @@ int main (int argc, char *argv[]) {
 	for (int i = 3; i < argc; i++) {
 		string s = argv[i];
 		infile.open(s);
+		
+		while (getword(infile, oneline)) {
+			ss << oneline;
+			string st = ss.str();
+
+			wordList[st]++;
+		}
+	
+		if (atoi(argv[1]) > 0) {
+       			map<string,int>::iterator it;
+			for (it = wordList.begin(); it !=  wordList.end(); it++) {
+			cout << it -> first << " " << it -> second << endl;
+			}
+   		 }
 
 		if (!infile.is_open()) {
-            cout << "BAD FILE " << s << endl;
-        }
+            	cout << "BAD FILE " << s << endl;
+       		}
             
-         else infile.close();
+         	else infile.close();
 	}
 
-	while (getline(infile, oneline)) {
-		ss << oneline ;
-	}
-
-	while (cin >> st) {
+	/*while (cin >> st) {
 		wordList[st]++;
-	}
+	}*/
 
 }
 
