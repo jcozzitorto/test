@@ -11,9 +11,8 @@ using namespace std;
 int main (int argc, char *argv[]) {
 	
 	ifstream infile;
-	stringstream ss;
-	string line;
-	string word;
+	ostringstream ss;
+	string st;
 	map<string, int> wordList;
     
 	if (argc < 2) {
@@ -57,30 +56,27 @@ int main (int argc, char *argv[]) {
 		cout << "NO FILES GIVEN" << endl;
 	}
 
-	if (atoi(argv[1]) > 0) {
-		for (int i = 3; i < argc; i++) {
-			string s = argv[i];
-			infile.open(s);
+	for (int i = 3; i < argc; i++) {
+		string s = argv[i];
+		infile.open(s);
 		
-            		if (!infile.is_open()) {
-				cout << "BAD FILE " << s << endl;
-			}
-
-			else {
-				while (getline(infile, line)) {
-					ss << line;
-					ss >> word;
-					wordList[word]++;
-				}
-
-				infile.close();
-			}
-         
+		while (infile >> st) {
+			
+			wordList[st]++;
+		}
+	
+		if (atoi(argv[1]) > 0) {
        			map<string,int>::iterator it;
 			for (it = wordList.begin(); it !=  wordList.end(); it++) {
-				cout << it -> first << " " << it -> second << endl;
+			cout << it -> first << " " << it -> second << endl;
 			}
    		 }
-	}	
-}
 
+		if (!infile.is_open()) {
+            	cout << "BAD FILE " << s << endl;
+       		}
+            
+         	else infile.close();
+	}
+
+}
