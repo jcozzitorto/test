@@ -60,10 +60,21 @@ int main (int argc, char *argv[]) {
 		for (int i = 3; i < argc; i++) {
 			string s = argv[i];
 			infile.open(s);
-		
+			
 			while (infile >> st) {
 				wordList[st]++;
 			}
+			
+			if (!infile.is_open()) {
+            	cout << "BAD FILE " << s << endl;
+       		}
+            
+			else infile.close();
+			
+			
+		}
+		
+			
        		if (st.length() < (atoi(argv[1])) || (st.empty())){
 					cout << "NO PHRASES" << endl;
 					return 0;
@@ -73,12 +84,7 @@ int main (int argc, char *argv[]) {
 				cout << it -> first << " " << it -> second << endl;
 				}			
 
-			if (!infile.is_open()) {
-            	cout << "BAD FILE " << s << endl;
-       		}
-            
-			else infile.close();
-		}
+			
     		
 	}
 	

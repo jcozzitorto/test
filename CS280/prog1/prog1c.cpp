@@ -11,7 +11,8 @@ using namespace std;
 int main (int argc, char *argv[]) {
 	
 	ifstream infile;
-	ostringstream ss;
+	stringstream ss;
+    string line;
 	string st;
 	map<string, int> wordList;
     
@@ -60,21 +61,20 @@ int main (int argc, char *argv[]) {
 		for (int i = 3; i < argc; i++) {
 			string s = argv[i];
 			infile.open(s);
-			
-			while (infile >> st) {
-				wordList[st]++;
-			}
-			
-			if (!infile.is_open()) {
-            	cout << "BAD FILE " << s << endl;
-       		}
-            
-			else infile.close();
-			
-			
-		}
 		
-			
+			while (!infile.eof()) {
+                getline(infile, line);
+                ss << line;
+            }
+            
+            while (ss >> st) {
+                wordList[st]++;
+            }
+                
+            /*while (infile >> st) {
+				wordList[st]++;
+			} */
+            
        		if (st.length() < (atoi(argv[1])) || (st.empty())){
 					cout << "NO PHRASES" << endl;
 					return 0;
@@ -84,7 +84,12 @@ int main (int argc, char *argv[]) {
 				cout << it -> first << " " << it -> second << endl;
 				}			
 
-			
+			if (!infile.is_open()) {
+            	cout << "BAD FILE " << s << endl;
+       		}
+            
+			else infile.close();
+		}
     		
 	}
 	
