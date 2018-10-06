@@ -54,6 +54,7 @@ int main (int argc, char *argv[]) {
 
 	if (argv[3] == NULL)  {
 		cout << "NO FILES GIVEN" << endl;
+        return 0;
 	}
 	
 	if (atoi(argv[1]) > 0) {
@@ -62,6 +63,9 @@ int main (int argc, char *argv[]) {
 			infile.open(s);
 			
 			while (infile >> st) {
+				for (int j = 0; j < st.length(); j++) {
+					st.at(j) = tolower(st.at(j));
+				}
 				wordList[st]++;
 			}
 			
