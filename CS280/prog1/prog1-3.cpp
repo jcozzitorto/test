@@ -80,20 +80,29 @@ int main (int argc, char *argv[]) {
 					int size = it3 -> second.size();
 			
 					for (int j = 0; j < size; j++) {
-						cout << it3 -> second[j] << " " << it3 -> first << endl;
+						//cout << it3 -> second[j] << " " << it3 -> first << endl;
+						;
 					}
 				}
 			
 			map<int, vector<string>>::iterator it4;	
+				int x = 0;
+				int y = 0;
+				
 				for (it4 = bycount.begin(); it4 != bycount.end(); it4++) {
-						int l = 0;
-						int m = 0;
-
-						l = it4 -> first;
-						cout << l;
+					int size2 = it4 -> second.size();
+						
+					for (int l = 0; l < size2; l++) {
+						
+							x = it4 -> first;
+								if (x > y) {
+								y = x;
+								}	
+							}
+						}
+						cout << it4 -> second[x] << " " << it4 -> first << endl;
 				}
-			
-		}
+		
 	
 			
 		else if (string(argv[2]) == "top") {
