@@ -16,14 +16,15 @@ int main (int argc, char *argv[]) {
 	string st;
 	map<string, int> wordList;
 	int max = 0;
+	
     
 	if (argc < 2) {
 		cout << "NO PHRASE LENGTH" << endl;
 		return 0;
 	}
-	      
-    
-    else if (atoi(argv[1]) <= 0) {
+	         
+	
+	else if (atoi(argv[1]) <= 0) {
         cout << "INVALID PHRASE LENGTH" << endl;
         return 0;
     }
@@ -67,7 +68,7 @@ int main (int argc, char *argv[]) {
 			}
 		}
 
-		if (string(argv[2]) == "top") {
+		else if (string(argv[2]) == "top") {
 			map<int, vector<string>>bycount;
 
 			map<string, int>::iterator it2;
@@ -81,7 +82,6 @@ int main (int argc, char *argv[]) {
 					int size = it3 -> second.size();
 			
 					for (int j = 0; j < size; j++) {
-						//cout << it3 -> second[j] << " " << it3 -> first << endl;
 						;
 					}
 				}
@@ -117,28 +117,24 @@ int main (int argc, char *argv[]) {
 			
 		}
 		
-	
 			
-		else if (string(argv[2]) == "top") {
-			;
-		}		
 
 		else if ((string(argv[2]) != "all") && (string(argv[2]) != "top")) {
 			cout << "INVALID MODE" << endl;
 			return 0;
 		}
 		
-		if (argv[2] == NULL) {
-		cout << "NO MODE" << endl;
-		return 0;
+		if (argc < 3) {
+			cout << "NO MODE" << endl;
+			return 0;
 	}
 
-	if (argv[3] == NULL)  {
+	if (argc < 4) {
 		cout << "NO FILES GIVEN" << endl;
-        return 0;
+		return 0;
 	}
 	
-	if (st.length() < (atoi(argv[1])) || (st.empty())){
+		if (st.length() < (atoi(argv[1])) || (st.empty())){
 					cout << "NO PHRASES" << endl;
 					return 0;
 				}
