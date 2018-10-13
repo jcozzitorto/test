@@ -15,6 +15,7 @@ int main (int argc, char *argv[]) {
 	ostringstream ss;
 	string st;
 	map<string, int> wordList;
+	int max = 0;
     
 	if (argc < 2) {
 		cout << "NO PHRASE LENGTH" << endl;
@@ -98,10 +99,23 @@ int main (int argc, char *argv[]) {
 								if (x > y) {
 								y = x;
 								}	
+								
 							}
 						}
-						cout << it4 -> second[x] << " " << it4 -> first << endl;
+						max = y;
+						
+			map<string,int>::iterator itr;
+			
+			for (itr = wordList.begin(); itr != wordList.end(); itr++) {
+				if ((itr -> second) == max) {
+					cout << itr -> first << " " << itr -> second << endl;
 				}
+				else;
+			}
+				
+			}
+			
+		}
 		
 	
 			
@@ -128,9 +142,7 @@ int main (int argc, char *argv[]) {
 					cout << "NO PHRASES" << endl;
 					return 0;
 				}
-			
-    		
-	}
-}
+			}
+		
 
 
