@@ -41,16 +41,60 @@ int main (int argc, char *argv[]) {
     	
 	
 	if (atoi(argv[1]) > 0) {
-		for (int i = 3; i < argc; i++) {
-			string s = argv[i];
+		for (int j = 3; j < argc; j++) {
+			string s = argv[j];
 			infile.open(s);
 			
-			while (infile >> st) {
-				for (int j = 0; j < st.length(); j++) {
-					st.at(j) = tolower(st.at(j));
+				char ch;
+				int nextSpace = 0;
+				int z = atoi(argv[1]);
+				string line;
+
+				while (getline(infile, line)) {
+					
+						for (int k = 0; k < line.length(); k++) {
+							ch = line.at(k);
+							if (isalpha(ch)) {
+								ch = tolower(line[k]);
+							}
+							if (isspace(ch)) {
+								nextSpace++;
+							}
+							ss << ch;
+						}
 				}
-				wordList[st]++;
-			}
+				cout << "spaces" << nextSpace;
+				
+				int nextSpace2 = 0;
+				stringstream ss2;
+				char chr;
+				
+				while (nextSpace2 = z) {
+					for (int l = 0; l < str.length(); l++) {
+						ch = str.at(l);
+						if (isspace(ch)) {
+							nextSpace2++;
+						}
+						ss << ch ;
+					}
+				}
+						
+						wordList[ss2.str()]++;
+				
+				
+					
+				
+				
+				
+			
+			
+			
+			
+			
+			
+			
+			
+						
 			
 			if (!infile.is_open()) {
             			cout << "BAD FILE " << s << endl;
@@ -81,7 +125,7 @@ int main (int argc, char *argv[]) {
 				for (it3 = bycount.begin(); it3 != bycount.end(); it3++) {
 					int size = it3 -> second.size();
 			
-					for (int j = 0; j < size; j++) {
+					for (int m = 0; m < size; m++) {
 						;
 					}
 				}
@@ -93,7 +137,7 @@ int main (int argc, char *argv[]) {
 				for (it4 = bycount.begin(); it4 != bycount.end(); it4++) {
 					int size2 = it4 -> second.size();
 						
-					for (int l = 0; l < size2; l++) {
+					for (int n = 0; n < size2; n++) {
 						
 							x = it4 -> first;
 								if (x > y) {
@@ -115,24 +159,30 @@ int main (int argc, char *argv[]) {
 				
 			}
 			
+			else if ((string(argv[2]) != "all") && (string(argv[2]) != "top")) {
+			cout << "INVALID MODE" << endl;
+			return 0;
+			
+			
+			
+			
+			
 		}
 		
 			
 
-		else if ((string(argv[2]) != "all") && (string(argv[2]) != "top")) {
-			cout << "INVALID MODE" << endl;
-			return 0;
+		
 		}
 		
 		if (argc < 3) {
 			cout << "NO MODE" << endl;
 			return 0;
-	}
+		}
 
-	if (argc < 4) {
-		cout << "NO FILES GIVEN" << endl;
-		return 0;
-	}
+		if (argc < 4) {
+			cout << "NO FILES GIVEN" << endl;
+			return 0;
+		}
 	
 		if (st.length() < (atoi(argv[1])) || (st.empty())){
 					cout << "NO PHRASES" << endl;
