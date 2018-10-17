@@ -12,22 +12,14 @@ int main (int argc, char *argv[]) {
 	int fileOpen = 0;
 
 
-	for (int i = 1; i < argc; i++) {
+	for (int i = 0; i < argc; i++) {
 		string arg = string(argv[i]);
 
 		for (int j = 0; j < arg.length(); j++) {
-			char ch;
-			ch = arg.at(j);
-			if ((arg.at(0) == '-') && ((arg.at(1) != 'v') || (arg.at(1) != 's') || (arg.at(1) != 'a'))) {
-				j = arg.length() - 1;
-				cout << "INVALID FLAG ";
-				exit;
+			if (((arg.at(0) == '-') && ((arg.at(1) != 'v') && (arg.at(1) != 's') && (arg.at(1) != 'a')))) {
+				cout << "INVALID FLAG " << arg << endl;
+				return 0;
 			}
-
-			if ((arg.at(0) == '-') && ((arg.at(1) != 'v') || (arg.at(1) != 's') || (arg.at(1) != 'a'))) {
-				cout << ch;
-			}
-
 		}
 
 		if (arg == "-v") {
@@ -43,17 +35,14 @@ int main (int argc, char *argv[]) {
 		}
 
 
+		else if ((arg != "-v") && (arg != "sum") && (arg != "-allids")) {
+			fileOpen++;
+            infile.open(arg);
 
-		for (int k = 0; k < arg.length(); k++) {
-			if (arg.at(0) != '-') {
-				if ((arg != "-v") && (arg != "-sum") && (arg != "-allids")) {
-				fileOpen++;
-				infile.open(arg);
-
-				if (fileOpen > 2) {
-				cout << "TOO MANY FILE NAMES" << endl;
-				return 0;
-			}
+            if (fileOpen > 2) {
+            cout << "TOO MANY FILE NAMES" << endl;
+            return 0;
+        }
 
             if (infile.is_open()) {
 				infile.close();
@@ -62,14 +51,15 @@ int main (int argc, char *argv[]) {
 				cout << "UNABLE TO OPEN " << arg << endl;
 				return 0;
 			}
-			}
+		}
 
-
+		else {
+			 cout << "INVALID FLAG" << endl;
+			 return 0;
 		}
 
 
 
 	}
-}
 }
 
