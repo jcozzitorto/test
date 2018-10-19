@@ -2,12 +2,15 @@
 #include <string>
 #include <istream>
 #include <fstream>
+#include "tokens.h"
+#include "lex.h"
 
 using namespace std;
 
 int main (int argc, char *argv[]) {
 
-	//istream in;
+
+	*istream in;
 	ifstream infile;
 	int fileOpen = 0;
 
