@@ -10,7 +10,7 @@ using namespace std;
 int main (int argc, char *argv[]) {
 
 
-	*istream in;
+	istream *in;
 	ifstream infile;
 	int fileOpen = 0;
 
