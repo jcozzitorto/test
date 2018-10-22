@@ -15,28 +15,29 @@ class Lex {
     private:
         Token getNextToken(std::istream *in, int *linenum) {
             while (&in->get(ch)) {
-                switch(TokenType) {
+                switch (TokenType) {
                     case IDENT:
                         if (isalpha(ch)) {
                             tt = IDENT;
                             lexeme = ch;
-                            linenum = 1;
+                            *linenum = 1;
                         }
 
                     case ICONST:
                         if (isdigit(ch)) {
                             tt = ICONST;
                             lexeme = ch;
-                            linenum = 1;
+                            *linenum = 1;
                         }
 
                     case SCONST:
                         if (isdigit(ch)) {
                             tt = SCONST;
                             lexeme = ch;
-                            linenum = 1;
+                            *linenum = 1;
                         }
                     }
+            return Token(tt, lexeme, *linenum);
             }
         }
 
