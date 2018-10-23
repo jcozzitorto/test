@@ -2,45 +2,40 @@
 #include <istream>
 #include "tokens.h"
 
-class Lex {
-    public:
-        std::istream *in;
+using namespace std;
 
-        char ch;
-        TokenType tt;
-        string lexeme;
-        int *linenum;
+Token (TokenType tt, string lexeme, int linenum) {
 
+    Token tok(TokenType tt, string, int);
 
-    private:
-        Token getNextToken(std::istream *in, int *linenum) {
-            while (&in->get(ch)) {
-                switch (TokenType) {
-                    case IDENT:
-                        if (isalpha(ch)) {
-                            tt = IDENT;
-                            lexeme = ch;
-                            *linenum = 1;
-                        }
+    //istream *in;
+    int *linenum;
 
-                    case ICONST:
-                        if (isdigit(ch)) {
-                            tt = ICONST;
-                            lexeme = ch;
-                            *linenum = 1;
-                        }
+    while (&in->get(ch)) {
+        switch (tt) {
+            case IDENT:
+                if (isalpha(ch)) {
+                    tt = IDENT;
+                    lexeme = ch;
+                    *linenum = 1;
+                }
 
-                    case SCONST:
-                        if (isdigit(ch)) {
-                            tt = SCONST;
-                            lexeme = ch;
-                            *linenum = 1;
-                        }
-                    }
-            return Token(tt, lexeme, *linenum);
+            case ICONST:
+                if (isdigit(ch)) {
+                    tt = ICONST;
+                    lexeme = ch;
+                    *linenum = 1;
+                }
+
+            case SCONST:
+                if (isdigit(ch)) {
+                    tt = SCONST;
+                    lexeme = ch;
+                    *linenum = 1;
+                }
             }
-        }
+        return Token(tt, lexeme, *linenum);
+    }
+}
 
-
-};
 
