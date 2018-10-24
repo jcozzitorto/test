@@ -2,8 +2,9 @@
 #include <string>
 #include <istream>
 #include <fstream>
+#include <ostream>
 #include "tokens.h"
-#include "lex.h"
+#include "Lex.h"
 
 using namespace std;
 
@@ -13,6 +14,8 @@ int main (int argc, char *argv[]) {
 	istream *in;
 	ifstream infile;
 	int fileOpen = 0;
+
+	ostream& operator<<(ostream& out, const Token& tok);
 
 
 	for (int i = 0; i < argc; i++) {
@@ -60,9 +63,9 @@ int main (int argc, char *argv[]) {
 			 cout << "INVALID FLAG" << endl;
 			 return 0;
 		}
-
-
-
 	}
+
+	//Token tok getNextToken(istream *in, int *linenum);
+
 }
 

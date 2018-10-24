@@ -4,14 +4,13 @@
 
 using namespace std;
 
-Token (TokenType tt, string lexeme, int linenum) {
+Token t(TokenType tt, string lexeme, int *linenum) {
 
     Token tok(TokenType tt, string, int);
 
-    //istream *in;
-    int *linenum;
+    char ch;
 
-    while (&in->get(ch)) {
+    while (tok.get(ch)) {
         switch (tt) {
             case IDENT:
                 if (isalpha(ch)) {
