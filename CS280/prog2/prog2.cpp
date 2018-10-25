@@ -3,19 +3,26 @@
 #include <istream>
 #include <fstream>
 #include <ostream>
+#include <string>
 #include "tokens.h"
 #include "Lex.h"
+#include <sstream>
 
 using namespace std;
+
+Token getNextToken(istream *in, int *linenum);
 
 int main (int argc, char *argv[]) {
 
 
 	istream *in;
+	int lineNumber = 0;
 	ifstream infile;
 	int fileOpen = 0;
+	stringstream ss;
 
 	ostream& operator<<(ostream& out, const Token& tok);
+
 
 
 	for (int i = 0; i < argc; i++) {
@@ -65,7 +72,9 @@ int main (int argc, char *argv[]) {
 		}
 	}
 
-	//Token tok getNextToken(istream *in, int *linenum);
+	Token tok;
+	while ((tok = getNextToken(in, &lineNumber)) != DONE && tok != ERR) {
 
+	}
 }
 

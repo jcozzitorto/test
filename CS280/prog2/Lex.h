@@ -37,4 +37,5 @@ Token getNextToken(istream *in, int *linenum) {
 				}
 		}
 	}
+	return getNextToken(in, linenum);
 }
