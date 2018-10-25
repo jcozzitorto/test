@@ -6,7 +6,7 @@
 #include <string>
 #include "tokens.h"
 #include "Lex.h"
-#include <sstream>
+#include <map>
 
 using namespace std;
 
@@ -19,7 +19,9 @@ int main (int argc, char *argv[]) {
 	int lineNumber = 0;
 	ifstream infile;
 	int fileOpen = 0;
-	stringstream ss;
+	//map<TokenType, string, int> tMap;
+
+
 
 	ostream& operator<<(ostream& out, const Token& tok);
 
@@ -73,8 +75,9 @@ int main (int argc, char *argv[]) {
 	}
 
 	Token tok;
-	while ((tok = getNextToken(in, &lineNumber)) != DONE && tok != ERR) {
 
+	while ((tok = getNextToken(in, &lineNumber)) != DONE && tok != ERR) {
+		cout << in << " " << lineNumber;
 	}
 }
 

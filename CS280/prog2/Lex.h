@@ -1,7 +1,13 @@
 #include <iostream>
+#include <map>
+#include <sstream>
 #include "tokens.h"
 
+using namespace std;
+
 Token getNextToken(istream *in, int *linenum) {
+
+	//map<TokenType, string, int> tMap;
 
 	enum State {BEGIN, IDENT, ICONST, SCONST};
 	State state = BEGIN;
